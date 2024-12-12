@@ -1,0 +1,453 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	will-change: transform;
+	--index: calc(1vw + 1vh);
+	--transition: cubic-bezier(.1, .7, 0, 1);
+}
+
+
+@font-face {
+	font-family: ralevay_m;
+	src: url(/fonts/raleway-v22-cyrillic-300.woff2);
+}
+@font-face {
+	font-family: ralevay_n;
+	src: url(/fonts/raleway-v22-cyrillic-900.woff2);
+}
+html {
+	scroll-behavior: smooth;
+}
+body {
+	background-color: #15101e;
+}
+
+.hm-center {
+	margin-top: 2vh;
+	display: flex;
+	justify-content: center;
+
+}
+
+.head-menu {
+	width: clamp(300px,calc(var(--index) * 50) ,2000px);
+	margin-right: 5vh;
+	margin-left: 5vh;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.logo-img {
+	float: left;
+	filter: brightness(0.9);
+}
+.head-button {
+	float: right;
+}
+.logo-img {
+	font-size: calc(var(--index) * 1);
+	text-transform: uppercase;
+	font-family: ralevay_n, sans-serif;
+	color: aliceblue;
+	background: linear-gradient(45deg, DarkMagenta, Tomato, Violet);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+.a-transf {
+	font-family: ralevay_m, sans-serif;
+	text-decoration: none;
+	color: aliceblue;
+	font-size: calc(var(--index) * 0.7);
+	padding-left: 2vw;
+	text-transform: lowercase;
+	display: inline-block;
+	transition: all 0.7s ease;
+
+}
+.a-transf:hover {
+	transform: scale(1.1) translateY(0.3vh) translateX(-0.3vw);
+	color: tomato;
+}
+
+.hli-center {
+	display: flex;
+	justify-content: center;
+}
+
+.head-logo-and-image {
+	margin-top: 20vh;
+	margin-right: 5vh;
+	margin-left: 5vh;
+	width: clamp(300px,calc(var(--index) * 50) ,2000px);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.logo-text {
+	margin-right: calc(var(--index) *6);
+}
+
+
+.logo-text p {
+	font-family: ralevay_m, sans-serif;
+	font-size: calc(var(--index) * 0.8);
+	font-weight: 300;
+	color: aliceblue;
+}
+
+.logo {
+	font-size: calc(var(--index) * 2.0);
+	text-transform: uppercase;
+	font-family: ralevay_n, sans-serif;
+	color: aliceblue;
+	background: linear-gradient(45deg, DarkMagenta, Tomato, Violet);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.logo-text .logo {
+	transition: all 1s;
+}
+.logo-text:hover .logo{
+	transform: scale(1.2) translateY(-5vh);
+}
+.logo-text .txt {
+	transition: transform 1.1s;
+}
+.logo-text:hover .txt{
+	transform: scale(1.2) translateY(-3vh);
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	flex: 1; /* Это позволяет контенту занимать все доступное пространство */
+
+}
+.images {
+	display: flex;
+	gap: 0.4rem;
+	perspective: calc(var(--index) * 35);
+
+}
+
+
+.image {
+	background-color: #222;
+	width: calc(var(--index) * 3);
+	height: calc(var(--index) * 12);
+	background-size: cover;
+	background-position: center;
+	cursor: pointer;
+	transition: transform 1.25s var(--transition), filter 3s var(--transition), width 1.25s var(--transition);
+	will-change: transform, filter;
+	filter: grayscale() brightness(.5);
+}
+.image::before, .image::after {
+	content: '';
+	position: absolute;
+	width: 20px;
+	height: 100%;
+	right: calc(var(--index) * -1);
+}
+.image::after{
+	left: calc(var(--index) * -1);
+}
+.images .image:hover {
+	transform: translateZ(calc(var(--index) * 5));
+	filter: inherit;
+}
+.images .image:hover + * {
+	transform: translateZ(calc(var(--index) * 3.7)) rotateY(35deg);
+	filter: inherit;
+	z-index: -1;
+}
+
+.image:has(+ :hover) {
+	transform: translateZ(calc(var(--index) * 3.7)) rotateY(-35deg);
+	filter: inherit;
+}
+
+
+
+.marq {
+	position: absolute;
+	z-index: -10;
+	transform: rotate(45deg);
+	opacity: 0.15;
+	filter: saturate(15) blur(120px);
+}
+.img  {
+	width: calc(var(--index) *12);
+}
+
+.gt-center {
+	margin-top: 25vh;
+	margin-bottom: 50vh;
+	display: flex;
+	justify-content: center;
+}
+.global-info {
+	width: clamp(300px,calc(var(--index) * 50) ,2000px);
+}
+.global-H {
+	text-align: center;
+	margin-bottom: 2vh;
+	font-size: calc(var(--index) * 1.5);
+	text-transform: uppercase;
+	font-family: ralevay_n, sans-serif;
+	color: aliceblue;
+	background: linear-gradient(45deg, DarkMagenta, Tomato, Violet);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+.global-p {
+	margin-right: 5vh;
+	margin-left: 5vh;
+	text-align: justify;
+	font-family: ralevay_m, sans-serif;
+	font-size: calc(var(--index) * 0.8);
+	font-weight: 300;
+	color: aliceblue;
+}
+.global-info {
+	text-align: justify;
+}
+
+.pouring {
+	margin-top: 15vh;
+	display: flex;
+	justify-content: center;
+}
+#blink1 {
+	text-align: center;
+	font-family: ralevay_m, sans-serif;
+	font-size: calc(var(--index) * 0.65);
+  -webkit-animation: blink1 3s linear infinite;
+  animation: blink1 3s linear infinite;
+}
+@-webkit-keyframes blink1 {
+  0% { color: rgba(235, 235, 235, 0.774); }
+  50% { color: rgba(34, 34, 34, 0); }
+  100% { color: rgba(238, 238, 238, 0.699); }
+}
+@keyframes blink1 {
+  0% { color: rgba(235, 235, 235, 0.747); }
+  50% { color: rgba(34, 34, 34, 0); }
+  100% { color: rgba(236, 236, 236, 0.795); }
+}
+
+.end {
+	text-align: center;
+	font-family: ralevay_m, sans-serif;
+	color: rgb(216, 224, 231);
+	font-size: calc(var(--index) *0.8);
+}
+
+
+
+.image {
+	background-color: #222;
+	width: calc(var(--index) * 3);
+	height: calc(var(--index) * 12);
+	background-size: cover;
+	background-position: center;
+	cursor: pointer;
+	transition: transform 1.25s var(--transition), filter 0.5s ease, width 0.5s ease;
+	will-change: transform, filter;
+	filter: grayscale() brightness(0.5);
+	position: relative; /* Для правильного позиционирования */
+}
+
+.images .image:hover {
+	transform: scale(1.5) translateZ(0); /* Увеличиваем изображение */
+	filter: grayscale(0) brightness(1);  /* Убираем фильтр */
+	z-index: 10;  /* Помещаем элемент выше остальных */
+	width: calc(var(--index) * 8); /* Увеличиваем ширину */
+}
+
+.image:has(+ :hover) {
+	transform: translateZ(0) rotateY(0); /* Сбрасываем вращение */
+}
+
+
+/* работы*/
+
+
+.projects-section {
+	display: flex;
+	flex-wrap: wrap;
+	gap: calc(var(--index) * 2); /* Пространство между карточками */
+	justify-content: center;
+	padding: calc(var(--index) * 2);
+
+}
+
+.project-block {
+	width: 100%;
+	max-width: 800px;
+}
+
+.project-card {
+	display: flex;
+	align-items: center;
+	background-color: #222;
+	border-radius: 10px;
+	overflow: hidden;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	transition: transform 0.5s ease;
+	width: 100%;
+	margin: 20px auto; /* Центрирует карточку по экрану */
+	flex: 1 1 calc(50% - calc(var(--index) * 2)); /* Карточки занимают 50% ширины минус отступ */
+	box-sizing: border-box; /* Учитываем отступы в ширине */
+}
+
+.project-card:hover {
+	transform: scale(1.05);
+}
+
+.project-image {
+	width: 100%; /* Устанавливаем 100% ширины для изображения */
+	height: auto; /* Сохраняем пропорции */
+	object-fit: cover; /* Обеспечивает покрытие без искажений */
+	padding: 10px; /* Отступы внутри изображения */
+}
+
+.project-description {
+	padding: 20px; /* Увеличим отступы для текста */
+	color: aliceblue;
+	font-family: 'Raleway', sans-serif;
+	width: 60%; /* Увеличиваем ширину блока с текстом */
+	box-sizing: border-box; /* Включает padding в размер */
+}
+
+.project-title {
+	font-size: 1.8rem; /* Увеличиваем размер шрифта */
+	font-family: 'Raleway', sans-serif;
+	background: linear-gradient(45deg, DarkMagenta, Tomato, Violet);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	margin-bottom: 1rem;
+	line-height: 1.3;
+}
+
+.project-text {
+	font-size: 1.1rem; /* Немного увеличим текст */
+	line-height: 1.7;
+	color: #ddd; /* Цвет текста для лучшей читаемости */
+	font-family: 'Raleway', sans-serif;
+}
+/* медиа*/
+@media (max-width: 768px) {
+	.project-card {
+		flex-direction: column; /* Для мобильных устройств делаем вертикальную раскладку */
+		width: 90%; /* Карточка будет занимать 90% от ширины экрана */
+	}
+
+	.project-image {
+		width: 100%; /* Изображение будет растягиваться на всю ширину */
+		height: auto; /* Сохраняем пропорции */
+		max-height: 300px; /* Ограничиваем максимальную высоту */
+	}
+
+	.project-title {
+		font-size: 1.6rem; /* Уменьшаем размер заголовка для мобильных */
+	}
+
+	.project-text {
+		font-size: 1rem; /* Уменьшаем текст для мобильных */
+	}
+	.projects-section {
+		flex-direction: column;
+		gap: 20px;
+	}
+	.project-description {
+		width: 100%; /* Для мобильных устройств текст занимает всю ширину */
+		padding: 15px; /* Уменьшаем padding для мобильных */
+	}
+}
+
+/* футер*/
+.minimal-footer {
+	color: #ddd;
+	text-align: center;
+	padding: 20px;
+	font-family: 'Raleway', sans-serif;
+	position: relative; /* Футер будет располагаться нормально */
+
+}
+
+.minimal-footer a {
+	color: #ddd;
+	text-decoration: none;
+	font-size: 1.1rem; /* Можно настроить размер, если необходимо */
+	transition: all 0.7s ease; /* Плавное изменение всех свойств при наведении */
+}
+.minimal-footer a:hover {
+	color: #ff6347;
+	transform: scale(1.1) translateY(-0.3vh) translateX(-0.3vw); /* Добавляем анимацию при наведении */
+}
+
+
+/* тг */
+.telegram-section {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 2vh; /* Отступ сверху */
+	text-align: center;
+	margin-bottom: 2vh;
+	font-size: calc(var(--index) * 1.5);
+	text-transform: uppercase;
+	font-family: ralevay_n, sans-serif;
+}
+
+.telegram-link {
+	color:  #ddd;
+	font-size: 2.5rem;
+	font-weight: bold;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	transition: all 0.7s ease;
+	text-decoration: none;
+}
+
+.telegram-link i {
+	font-size: 1.5rem;
+}
+
+.telegram-link:hover {
+	color: #ff6347;
+	transform: scale(1.1);
+}
+/* для анимации */
+/* Начальное состояние для всего блока .project-card */
+.project-card {
+	opacity: 0; /* Блок невидим */
+	transform: translateY(100px); /* Блок сдвинут вниз */
+	transition: opacity 0.5s ease-out, transform 1s ease-out; /* Плавные переходы */
+}
+
+/* Когда блок становится видимым */
+.project-card.visible {
+	opacity: 1; /* Блок становится видимым */
+	transform: translateY(0); /* Сдвигаем блок в нормальное положение */
+}
+/* Начальное состояние для блока "А дальше вот что" */
+#about {
+	opacity: 0; /* Скрываем блок */
+	transform: translateY(100px); /* Сдвигаем блок вниз */
+	transition: opacity 1s ease-out, transform 1s ease-out; /* Плавные переходы */
+}
+
+/* Когда блок становится видимым */
+#about.visible {
+	opacity: 1; /* Блок становится видимым */
+	transform: translateY(0); /* Возвращаем в нормальное положение */
+}
